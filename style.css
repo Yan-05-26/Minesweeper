@@ -1,0 +1,125 @@
+*
+{
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body
+{
+    background-image: linear-gradient(to right, gray, black);
+}
+
+section
+{
+    
+}
+
+h1, h2
+{
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+h1
+{
+    font-size: 50px;
+}
+
+h2
+{
+    margin: 10px;
+    font-size: 35px;
+}
+
+button
+{
+    width: 5vw;
+    height: 2vw;
+    padding: 5px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+table
+{
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 750px;
+    height: auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+td
+{
+    border: 1px dotted black;
+    text-align: center;   
+    vertical-align: center;
+}
+
+.covered
+{
+    background-image: url("textures/covered.png");
+    background-size: contain;
+}
+
+.covered:hover
+{
+    box-shadow: 0px 0px 20px yellow inset;
+}
+
+.flagged
+{
+    background-image: url("textures/flagged.png"), url("textures/covered.png");
+    background-size: contain, contain;
+    background-repeat: no-repeat, repeat;
+}
+
+.flagged:hover
+{
+    box-shadow: 0px 0px 20px red inset;
+}
+
+.uncovered
+{
+    background-image: url("textures/uncovered.png");
+    background-size: contain;
+}
+
+.uncovered[value = "1"]
+{
+    color: rgb(106, 218, 255);
+}
+.uncovered[value = "2"]
+{
+    color: rgb(25, 87, 255);
+}
+.uncovered[value = "3"]
+{
+    color: rgb(162, 0, 255);
+}
+.uncovered[value = "4"]
+{
+    color: rgb(255, 0, 255);
+}
+.uncovered[value = "5"]
+{
+    color: rgb(255, 0, 85);
+}
+.uncovered[value = "6"]
+{
+    color: rgb(255, 0, 0);
+}
+.uncovered[value = "7"]
+{
+    color: rgb(255, 145, 0);
+}
+.uncovered[value = "8"]
+{
+    color: rgb(255, 187, 0);
+}
+
+
