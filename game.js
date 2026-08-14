@@ -350,7 +350,7 @@ function checkCustomInput()
 {
     let x = Number(document.getElementById("sizeX").value);
     let y = Number(document.getElementById("sizeY").value);
-    let mines = (x * y) * 0.15;
+    let mines = Math.ceil((x * y) * 0.15);
 
     buildMinefield(x, y, mines);
 }
@@ -490,7 +490,3 @@ function checkForWin()
         buildMainMenuButton(element[0]);
     }
 }
-
-
-//custom field breaks when size 90x90 on first launch (missing numbers), maximum call stack exceeded
-//  -> only an issue if mines amount of mines can be entered by player
