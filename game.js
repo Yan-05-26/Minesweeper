@@ -263,15 +263,6 @@ function buildMainMenuButton(s)
     s.appendChild(e);
 }
 
-function buildMainMenuButton(s)
-{
-    let e;
-    e = document.createElement("button");
-    e.setAttribute("onclick", "buildStartMenu()");
-    e.innerText = "Main Menu";
-    s.appendChild(e);
-}
-
 function buildRestartButton(s)
 {
     counter = 0;
