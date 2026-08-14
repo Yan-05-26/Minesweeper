@@ -263,42 +263,6 @@ function buildMainMenuButton(s)
     s.appendChild(e);
 }
 
-// function buildContainer(s)
-// {
-//     let min = Math.min(sizeX, sizeY);
-//     let containterWidth = (window.innerWidth * 0.35);
-//     console.log(containterWidth);
-//     let minefield = document.createElement("div");
-//     minefield.setAttribute("class", "container");
-//     minefield.setAttribute("style", "width: " + containterWidth + "px;  " +
-//                                     "grid-template-columns: repeat(" + sizeX + ", 1fr); " + 
-//                                     "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
-//                                     "font-size: "+ containterWidth/sizeX + "vw;");
-//     let minefieldCell;   
-
-//     for(let j = 0; j < minefieldArray[0].length; j++)
-//     {
-//         row = [];
-//         for(let i = 0; i < minefieldArray.length; i++)
-//         {
-//             minefieldCell = document.createElement("div");
-
-//             minefieldCell.setAttribute("class", "covered");
-//             minefieldCell.setAttribute("onclick", "checkForMine(this)");
-//             minefieldCell.setAttribute("oncontextmenu", "flag(this)");
-//             minefieldCell.setAttribute("x", i);
-//             minefieldCell.setAttribute("y", j);
-//             minefieldCell.setAttribute("style", "width: " + containterWidth/min + "px; " + "height: " + containterWidth/min + "px;");
-//             minefield.appendChild(minefieldCell);
-//             row.push(minefieldCell);
-//         }
-
-//         fieldArray.push(row);
-//     }
-
-//     s.appendChild(minefield);
-// }
-
 function buildMainMenuButton(s)
 {
     let e;
