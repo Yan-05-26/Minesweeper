@@ -1,23 +1,19 @@
 *
 {
     box-sizing: border-box;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:"Bitcount Single", system-ui;
 }
 
 body
 {
-    background-image: linear-gradient(to right, gray, black);
-}
-
-section
-{
-    
+    background-image: url("textures/background.png");
+    background-size: fill;
 }
 
 h1, h2
 {
     text-align: center;
-    color: white;
+    color: rgb(255, 233, 135);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
 }
 
@@ -32,43 +28,96 @@ h2
     font-size: 35px;
 }
 
-button
+form
 {
-    width: 5vw;
-    height: 2vw;
-    padding: 5px;
-    margin: 10px;
-    border: 2px solid black;
-    border-radius: 10px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px black;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+
+    background-image: linear-gradient(to bottom right, rgba(0, 0, 0, 0.35), rgba(150, 150, 150, 0.35));
 }
 
-table
+form div
+{
+    margin: 10px;
+    color: rgb(255, 233, 135);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+    font-size: 25px;
+}
+
+button, input[type="submit"]
+{
+    display: block;
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+
+    background-image: linear-gradient(to bottom, rgb(255, 233, 135), rgb(194, 142, 0));
+}
+
+button:hover, input[type="submit"]:hover
+{   
+    box-shadow: 0px 0px 25px rgb(255, 241, 115);
+    background-image: linear-gradient(to bottom, rgb(255, 230, 0), rgb(255, 145, 0));
+}
+
+label
+{
+    color: rgb(255, 233, 135);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+input, label
+{
+    display: block;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+.container
 {
     margin-left: auto;
     margin-right: auto;
 
-    width: 750px;
-    height: auto;
-    table-layout: fixed;
-    border-collapse: collapse;
+    display: grid;
+    width: 35vw;
+    height: 35vw;
+
 }
 
-td
+.container div
 {
-    border: 1px dotted black;
-    text-align: center;   
-    vertical-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 50%;
 }
 
 .covered
 {
     background-image: url("textures/covered.png");
+    background-position: center;
     background-size: contain;
+    image-rendering: pixelated;
 }
 
 .covered:hover
 {
-    box-shadow: 0px 0px 20px yellow inset;
+    box-shadow: 0px 0px 20px rgb(255, 200, 48) inset;
 }
 
 .flagged
@@ -76,6 +125,7 @@ td
     background-image: url("textures/flagged.png"), url("textures/covered.png");
     background-size: contain, contain;
     background-repeat: no-repeat, repeat;
+    image-rendering: pixelated;
 }
 
 .flagged:hover
@@ -86,7 +136,11 @@ td
 .uncovered
 {
     background-image: url("textures/uncovered.png");
+    background-position: center;
     background-size: contain;
+    image-rendering: pixelated;
+
+    font-family:'Courier New', Courier, monospace;
 }
 
 .uncovered[value = "1"]
@@ -121,5 +175,6 @@ td
 {
     color: rgb(255, 187, 0);
 }
+
 
 

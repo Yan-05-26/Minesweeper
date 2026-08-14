@@ -1,5 +1,5 @@
 let minefieldArray;
-let tableArray;
+let fieldArray;
 let sizeX;
 let sizeY;
 let totalMines;
@@ -21,7 +21,7 @@ function buildMinefield(xCount, yCount, mCount)
     arrayFilled = 0;
 
     minefieldArray = [];
-    tableArray = [];
+    fieldArray = [];
 
     let column;
 
@@ -40,7 +40,7 @@ function buildMinefield(xCount, yCount, mCount)
     let section = document.createElement("section");
 
     buildMineCounter(section);
-    buildTable(section);
+    buildContainer(section);
     buildMainMenuButton(section);
 
     document.body.appendChild(section);
@@ -165,7 +165,7 @@ function buildStartMenu()
     e.innerText = "Hard";
     section.appendChild(e);
 
-    buildCustomButton(section);
+    buildCustomInput(section);
 
     document.body.appendChild(section);
 }
@@ -184,32 +184,30 @@ function buildMineCounter(s)
     s.appendChild(element);
 }
 
-function buildTable(s)
+function buildContainer(s)
 {
-    let minefield = document.createElement("table");
-    let minefieldRow;
+    let minefield = document.createElement("div");
+    minefield.setAttribute("class", "container");
+    minefield.setAttribute("style", "grid-template-columns: repeat(" + sizeX + ", 1fr); grid-template-rows: repeat(" + sizeY + ", 1fr); " + "font-size: "+ 35/sizeX + "vw;");
     let minefieldCell;   
 
     for(let j = 0; j < minefieldArray[0].length; j++)
     {
-        minefieldRow = document.createElement("tr");
         row = [];
         for(let i = 0; i < minefieldArray.length; i++)
         {
-            minefieldCell = document.createElement("td");
+            minefieldCell = document.createElement("div");
 
             minefieldCell.setAttribute("class", "covered");
             minefieldCell.setAttribute("onclick", "checkForMine(this)");
             minefieldCell.setAttribute("oncontextmenu", "flag(this)");
             minefieldCell.setAttribute("x", i);
             minefieldCell.setAttribute("y", j);
-            minefieldCell.setAttribute("style", "width: " + (750/sizeX) + "px; height: " + (750/sizeX) + "px;");
-            minefieldRow.appendChild(minefieldCell);
+            minefield.appendChild(minefieldCell);
             row.push(minefieldCell);
         }
-        minefield.appendChild(minefieldRow);
 
-        tableArray.push(row);
+        fieldArray.push(row);
     }
 
     s.appendChild(minefield);
@@ -259,13 +257,17 @@ function buildLossScreen()
     document.body.appendChild(section);
 }
 
-function buildCustomButton(s)
+function buildCustomInput(s)
 {
     let form;
     let label;
     let input;
+    let div = document.createElement("div");
+    div.innerText = "Enter custom field size:"
 
     form = document.createElement("form");
+
+    form.appendChild(div);
 
     label = document.createElement("label");
     label.setAttribute("for", "sizeX");
@@ -289,21 +291,9 @@ function buildCustomButton(s)
     form.appendChild(label);
     form.appendChild(input);
 
-    label = document.createElement("label");
-    label.setAttribute("for", "mines");
-    label.innerText = "Mine Amount: ";
-    input = document.createElement("input");
-    input.setAttribute("id", "mines");
-    input.setAttribute("type", "number");
-    input.setAttribute("min", "2");
-    input.required = true;
-    form.appendChild(label);
-    form.appendChild(input);
-
     input = document.createElement("input");
     input.setAttribute("type", "submit");
     input.setAttribute("value", "Play");
-    // input.setAttribute("onclick", "checkCustomInput()");
     form.appendChild(input);
 
     s.appendChild(form);
@@ -319,13 +309,7 @@ function checkCustomInput()
 {
     let x = Number(document.getElementById("sizeX").value);
     let y = Number(document.getElementById("sizeY").value);
-    let mines = Number(document.getElementById("mines").value);
-
-    if(mines >= x * y && x * y - 9 > mines)
-    {
-        console.log("error");
-        return;
-    }
+    let mines = (x * y) * 0.15;
 
     buildMinefield(x, y, mines);
 }
@@ -376,42 +360,42 @@ function uncover(e)
 
     if(!(x - 1 < 0))
     {
-        uncover(tableArray[y][x - 1]);
+        uncover(fieldArray[y][x - 1]);
 
         if(!(y - 1 < 0))
         {
-            uncover(tableArray[y - 1][x - 1]);
+            uncover(fieldArray[y - 1][x - 1]);
         }
 
         if(!(y + 1 >= sizeY))
         {
-            uncover(tableArray[y + 1][x - 1]);
+            uncover(fieldArray[y + 1][x - 1]);
         }    
     }
 
     if(!(y - 1 < 0))
     {
-        uncover(tableArray[y - 1][x]);
+        uncover(fieldArray[y - 1][x]);
     }
 
     if(!(x + 1 >= sizeX))
     {
-        uncover(tableArray[y][x + 1]);
+        uncover(fieldArray[y][x + 1]);
 
         if(!(y - 1 < 0))
         {
-            uncover(tableArray[y - 1][x + 1]);
+            uncover(fieldArray[y - 1][x + 1]);
         }
 
         if(!(y + 1 >= sizeY))
         {
-            uncover(tableArray[y + 1][x + 1]);
+            uncover(fieldArray[y + 1][x + 1]);
         }   
     }
 
     if(!(y + 1 >= sizeY))
     {
-        uncover(tableArray[y + 1][x]);
+        uncover(fieldArray[y + 1][x]);
     }    
 }
 
@@ -465,3 +449,7 @@ function checkForWin()
         buildMainMenuButton(element[0]);
     }
 }
+
+
+//custom field breaks when size 90x90 on first launch (missing numbers), maximum call stack exceeded
+//  -> only an issue if mines amount of mines can be entered by player
