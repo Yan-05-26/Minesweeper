@@ -201,7 +201,7 @@ function buildContainer(s)
         minefield.setAttribute("class", "container");
         minefield.setAttribute("style", "width: " + containterWidth + "px;  " +
                                     "grid-template-columns: repeat(" + sizeX + ", 1fr); " + 
-                                    "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
+                                    // "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
                                     "font-size: "+ containterWidth/sizeX + "px;");
 
         for(let j = 0; j < minefieldArray[0].length; j++)
@@ -232,7 +232,7 @@ function buildContainer(s)
         minefield.setAttribute("class", "container");
         minefield.setAttribute("style", "width: " + containerHeight/sizeY * sizeX + "px;  " +
                                     "grid-template-columns: repeat(" + sizeX + ", 1fr); " + 
-                                    "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
+                                    // "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
                                     "font-size: "+ containerHeight/sizeY + "px;");
 
         for(let j = 0; j < minefieldArray[0].length; j++)
