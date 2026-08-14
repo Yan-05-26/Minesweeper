@@ -9,11 +9,6 @@ let arrayFilled;
 
 window.addEventListener("contextmenu", e => e.preventDefault());
 
-console.log({
-    innerWidth: window.innerWidth,
-    innerHeight: window.innerHeight,
-});
-
 function buildMinefield(xCount, yCount, mCount)
 {
     document.body.removeChild(document.body.firstElementChild);
@@ -202,6 +197,7 @@ function buildContainer(s)
         minefield.setAttribute("style", "width: " + containterWidth + "px;  " +
                                     "grid-template-columns: repeat(" + sizeX + ", 1fr); " + 
                                     // "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
+                                    "grid-auto-rows: " + containterWidth/sizeX + "px; " +
                                     "font-size: "+ containterWidth/sizeX + "px;");
 
         for(let j = 0; j < minefieldArray[0].length; j++)
@@ -233,6 +229,7 @@ function buildContainer(s)
         minefield.setAttribute("style", "width: " + containerHeight/sizeY * sizeX + "px;  " +
                                     "grid-template-columns: repeat(" + sizeX + ", 1fr); " + 
                                     // "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
+                                    "grid-auto-rows: " + containerHeight/sizeY + "px; " +
                                     "font-size: "+ containerHeight/sizeY + "px;");
 
         for(let j = 0; j < minefieldArray[0].length; j++)
