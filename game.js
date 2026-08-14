@@ -195,9 +195,8 @@ function buildContainer(s)
         minefield = document.createElement("div");
         minefield.setAttribute("class", "container");
         minefield.setAttribute("style", "width: " + containterWidth + "px;  " +
-                                    "grid-template-columns: repeat(" + sizeX + ", 1fr); " + 
-                                    // "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
-                                    "grid-auto-rows: " + containterWidth/sizeX + "px; " +
+                                    "grid-template-columns: repeat(" + sizeX + ", " + containterWidth/sizeX +"px); " + 
+                                    "grid-template-rows: repeat(" + sizeY + ", " + containterWidth/sizeX +"px); " + 
                                     "font-size: "+ containterWidth/sizeX + "px;");
 
         for(let j = 0; j < minefieldArray[0].length; j++)
@@ -227,9 +226,8 @@ function buildContainer(s)
         minefield = document.createElement("div");
         minefield.setAttribute("class", "container");
         minefield.setAttribute("style", "width: " + containerHeight/sizeY * sizeX + "px;  " +
-                                    "grid-template-columns: repeat(" + sizeX + ", 1fr); " + 
-                                    // "grid-template-rows: repeat(" + sizeY + ", 1fr); " + 
-                                    "grid-auto-rows: " + containerHeight/sizeY + "px; " +
+                                    "grid-template-columns: repeat(" + sizeX + ", " + containerHeight/sizeY +"px); " + 
+                                    "grid-template-rows: repeat(" + sizeY + ", " + containerHeight/sizeY +"px); " + 
                                     "font-size: "+ containerHeight/sizeY + "px;");
 
         for(let j = 0; j < minefieldArray[0].length; j++)
