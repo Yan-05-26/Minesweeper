@@ -8,6 +8,7 @@ body
 {
     background-image: url("textures/background.png");
     background-size: fill;
+    background-repeat: no-repeat;
 }
 
 h1, h2
