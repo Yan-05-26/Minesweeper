@@ -9,6 +9,11 @@ let arrayFilled;
 
 window.addEventListener("contextmenu", e => e.preventDefault());
 
+console.log({
+    innerWidth: window.innerWidth,
+    innerHeight: window.innerHeight,
+});
+
 function buildMinefield(xCount, yCount, mCount)
 {
     document.body.removeChild(document.body.firstElementChild);
