@@ -6,8 +6,10 @@
 
 body
 {
+    background-color: black;
     background-image: url("textures/background.png");
-    background-size: fill;
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -94,9 +96,8 @@ input, label
     margin-right: auto;
 
     display: grid;
-    width: 35vw;
-    height: 35vw;
 
+    justify-content: center;    
 }
 
 .container div
