@@ -317,6 +317,7 @@ function buildCustomInput(s)
     input.setAttribute("id", "sizeX");
     input.setAttribute("type", "number");
     input.setAttribute("min", "4");
+    input.setAttribute("max", "200");
     input.required = true;
     form.appendChild(label);
     form.appendChild(input);
@@ -328,6 +329,7 @@ function buildCustomInput(s)
     input.setAttribute("id", "sizeY");
     input.setAttribute("type", "number");
     input.setAttribute("min", "4");
+    input.setAttribute("max", "200");
     input.required = true;
     form.appendChild(label);
     form.appendChild(input);
